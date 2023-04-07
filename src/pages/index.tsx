@@ -15,44 +15,34 @@ import type {
   UseContractReadConfig,
   UseContractWriteConfig,
 } from 'wagmi';
-import { ethers } from 'ethers';
 
 const contractConfig = {
-  address: '0xF6E1B7E18dA9201eEaE870089E52D4d7417C1952',
+  address: '0xEb4b197459F0A3cEF181c5383765b4ca2DC01252',
   abi,
 };
 
 const Home: NextPage = () => {
   const [mounted, setMounted] = React.useState(false);
   React.useEffect(() => setMounted(true), []);
-  const [shouldPrepare, setShouldPrepare] = useState(false);
 
   const [totalMinted, setTotalMinted] = React.useState(0);
   const { isConnected } = useAccount();
 
   const [numTokens, setNumTokens] = React.useState(1);
 
-  React.useEffect(() => {
-    if (isConnected) {
-      setShouldPrepare(true);
-    }
-  }, [isConnected, numTokens]);
-
   const mintPrice = .01;
-  const value = mintPrice * numTokens * 10 ** 18; // converting to wei
+  const value = 10000000000000000 * numTokens
 
   const { config: contractWriteConfig } = usePrepareContractWrite({
     ...contractConfig,
     functionName: 'safeMint',
     args: [numTokens],
-    options: {
-      value,
-    },
+    value: value,
   } as UsePrepareContractWriteConfig);
 
   const {
     data: mintData,
-    write: mint,
+    write: safeMint,
     isLoading: isMintLoading,
     isSuccess: isMintStarted,
     error: mintError,
@@ -118,11 +108,11 @@ const Home: NextPage = () => {
       { isConnected && ( 
       <button
         style={{ marginTop: "1rem" }}
-        disabled={!mint || isMintLoading || isMintStarted}
+        disabled={!safeMint || isMintLoading || isMintStarted}
         className="button"
         data-mint-loading={isMintLoading}
         data-mint-started={isMintStarted}
-        onClick={() => mint?.(numTokens)}
+        onClick={() => safeMint?.([numTokens])}
       >
         {isMintLoading && "Waiting for approval"}
         {isMintStarted && "Minting..."}
