@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Modal from "./components/modal";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import type { NextPage } from "next";
+import Head from "next/head";
 import {
   useAccount,
   useContractRead,
@@ -85,16 +86,8 @@ const Home: NextPage = () => {
 
   const isMinted = txSuccess;
 
-  const [whatModalOpen, setWhatModalOpen] = useState(false);
   const [faqModalOpen, setFaqModalOpen] = useState(false);
-
-  const handleWhatClick = () => {
-    setWhatModalOpen(true);
-  };
-
-  const handleWhatClose = () => {
-    setWhatModalOpen(false);
-  };
+  const [AboutModalOpen, setAboutModalOpen] = useState(false);
 
   const handleFaqClick = () => {
     setFaqModalOpen(true);
@@ -102,6 +95,14 @@ const Home: NextPage = () => {
 
   const handleFaqClose = () => {
     setFaqModalOpen(false);
+  };
+
+  const handleAboutClick = () => {
+    setAboutModalOpen(true);
+  };
+
+  const handleAboutClose = () => {
+    setAboutModalOpen(false);
   };
 
   const handleMintClick = () => {
@@ -113,10 +114,24 @@ const Home: NextPage = () => {
       className="page"
       style={{ textAlign: "center", display: "flex", flexDirection: "column" }}
     >
+      <Head>
+  <title>Polygons Checks — Checks are now on Polygon</title>
+  <meta name="description" content="A Checks-derviative, onchain art project on Polygon. Each Check minted contains a unique fingerprint. Art & metadata stored onchain." />
+  <meta name="keywords" content="Polygons Check, Checks, onchain art, Polygon, NFT, art project" />
+  <meta name="author" content="pcdkd" />
+  <meta property="og:title" content="Polygons Check" />
+<meta property="og:type" content="app" />
+<meta property="og:url" content="https://www.polygons.wtf/" />
+<meta property="og:image" content="https://polygons.wtf/components/assets/polygons-check-blue.png" />
+<meta name="twitter:title" content="Polygons CHeck "/>
+<meta name="twitter:description" content="A Checks-derviative, onchain art project on Polygon. Each Check minted contains a unique fingerprint. Art & metadata stored onchain."/>
+<meta name="twitter:image" content="https://polygons.wtf/components/assets/polygons-check-blue.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
+</Head>
       <h1>Checks are now on Polygon.</h1>
       <h2>
-        Polygons Check is a Checks-derivative art project on Polygon. Art is
-        onchain.<br></br> New variations. Notability not guaranteed.
+        Polygons Check is a Checks-derivative art project on Polygon. Art & metadata is
+        onchain.<br></br>gen1 minting now.  This is not alpha.<br></br><br></br> Notability not guaranteed.
       </h2>
       <p className="generated">{totalMinted} generated.</p>
       <ConnectButton style={{ margin: "1rem 0" }} />
@@ -133,7 +148,7 @@ const Home: NextPage = () => {
           </span>
           <button
             className="numbutton"
-            onClick={() => setNumTokens(Math.min(10, numTokens + 1))}
+            onClick={() => setNumTokens(Math.min(25, numTokens + 1))}
           >
             +
           </button>
@@ -191,31 +206,17 @@ const Home: NextPage = () => {
           <nav>
             <ul>
               <li>
-                <a href="#" className="menu-item" onClick={handleWhatClick}>
-                  1) What
-                </a>
-              </li>
-              <li>
                 <a href="#" className="menu-item" onClick={handleFaqClick}>
                   FAQ
                 </a>
               </li>
+              <li>
+                <a href="#" className="menu-item" onClick={handleAboutClick}>
+                  About
+                </a>
+              </li>
             </ul>
           </nav>
-          <Modal
-            title="What Modal"
-            isOpen={whatModalOpen}
-            onClose={handleWhatClose}
-          >
-            <p className="modalHeader">This is a header.</p>
-            <p>
-              Polygon Onchain is built by pcdkd. Connect on farcaster, nostr,
-              and bird app. View the code for the mint app here. View the erc721
-              contract here. The contract owner cannot mint more than 10
-              Polygons.
-            </p>
-          </Modal>
-
           <Modal
             title="FAQ Modal"
             isOpen={faqModalOpen}
@@ -223,8 +224,7 @@ const Home: NextPage = () => {
           >
             <p className="modalHeader">What is Polygons Check?</p>
             <p className="modalText">
-              An Checks-derviative, onchain art project on Ethereum. Read more
-              on 1) What.
+              A Checks-derviative, onchain art project on Polygon. Each Check minted contains a unique fingerprint. Art & metadata stored onchain.
             </p>
             <hr className="modalDivide"></hr>
             <p className="modalHeader">Where do I get Polygons Check?</p>
@@ -235,18 +235,27 @@ const Home: NextPage = () => {
             <hr className="modalDivide"></hr>
             <p className="modalHeader">How many can be generated?</p>
             <p className="modalText">
-              There are 5000 Polygon Checks available. Mint price is 7 MATIC.
+              There are 3500 gen1 Polygon Checks available. Mint price is 7 MATIC.
             </p>
             <hr className="modalDivide"></hr>
             <p className="modalHeader">How do I use Polygon Checks??</p>
             <p className="modalText">
-              Your day of mint is recorded. You will be able to burn your Checks
-              to create new iterations, including 1/1 onchain generative art
-              pieces.
+              Your day of mint is recorded. You will be able to use your gen1 Checks
+              to create gen2 iterations.
             </p>
             <hr className="modalDivide"></hr>
             <p className="modalHeader">Is there a creative commons licese?</p>
             <p className="modalText">Yes. Polygons Check are CC0 ("PUBLIC").</p>
+          </Modal>
+          <Modal
+            title="About Modal"
+            isOpen={AboutModalOpen}
+            onClose={handleAboutClose}
+          >
+            
+            <p className="modalText">
+              Created by pcdkd. Follow/DM me on <a href="https://warpcast.com/pcdkd" target="_blank">Warpcast</a>, <a href="https://snort.social/p/npub1w65mgf77dfnn9c2vylw8k0rjjvvc8cw60ttw44u2cf0608eyxtlsyt9ec3" target="_blank">Nostr</a> & the <a href="https://twitter.com/pcdkd" target="_blank">bird app</a>.
+            </p>
           </Modal>
         </div>
       </footer>
