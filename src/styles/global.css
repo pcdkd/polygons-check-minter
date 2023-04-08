@@ -13,7 +13,7 @@
 
 body {
   margin: 0;
-  font-family: 'Tenor Sans', Courier, monospace, -apple-system, "system-ui", "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: 'Montserrat', Courier, monospace, -apple-system, "system-ui", "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: black;
@@ -39,7 +39,6 @@ body {
 .button {
   appearance: none;
   border: none;
-  font-family: 'Courier New', Courier, monospace, -apple-system, "system-ui", "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   background: #f5ed00 70%;
   display: inline-flex;
   line-height: 1;
