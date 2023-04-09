@@ -27,7 +27,7 @@ const Home: NextPage = () => {
     setMounted(true);
   }, []);
 
-  const [totalMinted, setTotalMinted] = React.useState(0);
+  // const [totalMinted, setTotalMinted] = React.useState(0);
   const { isConnected } = useAccount();
 
   const [numTokens, setNumTokens] = React.useState(1);
@@ -78,11 +78,11 @@ const Home: NextPage = () => {
     hash: mintData?.hash,
   });
 
-  React.useEffect(() => {
-    if (totalSupplyData) {
-      setTotalMinted(totalSupplyData.toNumber());
-    }
-  }, [totalSupplyData]);
+  // React.useEffect(() => {
+    // if (totalSupplyData) {
+      // setTotalMinted(totalSupplyData.toNumber());
+    // }
+  // }, [totalSupplyData]);
 
   const isMinted = txSuccess;
 
@@ -133,7 +133,7 @@ const Home: NextPage = () => {
         Polygons Check is a Checks-derivative art project on Polygon. Art & metadata is
         onchain.<br></br>gen1 minting now.  This is not alpha.<br></br><br></br> Notability not guaranteed.
       </h2>
-      <p className="generated">{totalMinted} generated.</p>
+       
       <ConnectButton />
       {isConnected && (
         <div style={{ margin: "2rem 0" }}>
@@ -254,7 +254,7 @@ const Home: NextPage = () => {
           >
             
             <p className="modalText">
-              Created by pcdkd. Follow/DM me on <a href="https://warpcast.com/pcdkd" target="_blank">Warpcast</a>, <a href="https://snort.social/p/npub1w65mgf77dfnn9c2vylw8k0rjjvvc8cw60ttw44u2cf0608eyxtlsyt9ec3" target="_blank">Nostr</a> & the <a href="https://twitter.com/pcdkd" target="_blank">bird app</a>.
+              Created by pcdkd.<br></br><br></br> Follow on <a href="https://warpcast.com/pcdkd" target="_blank">Warpcast</a>, <a href="https://snort.social/p/npub1w65mgf77dfnn9c2vylw8k0rjjvvc8cw60ttw44u2cf0608eyxtlsyt9ec3" target="_blank">Nostr</a> & the <a href="https://twitter.com/pcdkd" target="_blank">bird app</a>.
             </p>
           </Modal>
         </div>

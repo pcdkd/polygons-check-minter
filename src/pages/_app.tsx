@@ -8,16 +8,18 @@ import {
 } from '@rainbow-me/rainbowkit';
 import { argentWallet, trustWallet } from '@rainbow-me/rainbowkit/wallets';
 import { createClient, configureChains, WagmiConfig } from 'wagmi';
-import { polygonMumbai } from 'wagmi/chains';
+import { polygonMumbai, polygon } from 'wagmi/chains';
 import { alchemyProvider } from 'wagmi/providers/alchemy';
+import { infuraProvider } from 'wagmi/providers/infura';
 import { publicProvider } from 'wagmi/providers/public';
 
 const { chains, provider } = configureChains(
-  [polygonMumbai],
+  [polygonMumbai, polygon],
   [
-    alchemyProvider({ apiKey: 'process.env.ALCHEMY_MUMBAI_API_KEY' }),
+    alchemyProvider({ apiKey: "process.env.NEXT_PUBLIC_ALC_MMBI_KEY" }),
+    infuraProvider({ apiKey: "process.env.NEXT_PUBLIC_INF_PLY_KEY" }),
     publicProvider(),
-  ]
+  ],
 );
 
 const { wallets } = getDefaultWallets({
