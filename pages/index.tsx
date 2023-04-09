@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Modal from "./components/modal";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import type { NextPage } from "next";
 import Head from "next/head";
@@ -12,13 +11,13 @@ import {
   useProvider,
   useNetwork,
 } from "wagmi";
-import { abi } from "../contract-abi";
+
 import type {
   UsePrepareContractWriteConfig,
-  UseContractReadConfig,
-  UseContractWriteConfig,
 } from "wagmi";
 import { ethers } from "ethers";
+import Modal from "../components/Modal";
+import abi from "../contracts/contract.json";
 
 const Home: NextPage = () => {
   const [mounted, setMounted] = React.useState(false);
@@ -40,8 +39,8 @@ const Home: NextPage = () => {
   const network = useNetwork();
 
   const contractConfig = {
-    address: "0xEb4b197459F0A3cEF181c5383765b4ca2DC01252",
-    abi,
+    address: "0xEb4b197459F0A3cEF181c5383765b4ca2DC01252" as `0x${string}`,
+    abi: abi as any[],
     provider,
   };
 
@@ -62,13 +61,13 @@ const Home: NextPage = () => {
     isSuccess: isMintStarted,
     error: mintError,
     status,
-  } = useContractWrite(contractWriteConfig as UseContractWriteConfig);
+  } = useContractWrite(contractWriteConfig);
 
   const { data: totalSupplyData }: any = useContractRead({
     ...contractConfig,
     functionName: "totalSupply",
     watch: true,
-  } as UseContractReadConfig);
+  });
 
   const {
     data: txData,
@@ -106,7 +105,7 @@ const Home: NextPage = () => {
   };
 
   const handleMintClick = () => {
-    safeMint?.([numTokens]);
+    safeMint?.();
   };
 
   return (
@@ -134,7 +133,9 @@ const Home: NextPage = () => {
         onchain.<br></br>gen1 minting now.  This is not alpha.<br></br><br></br> Notability not guaranteed.
       </h2>
       <p className="generated">{totalMinted} generated.</p>
-      <ConnectButton style={{ margin: "1rem 0" }} />
+      <div style={{ margin: "1rem 0" }}>
+      <ConnectButton />
+      </div>
       {isConnected && (
         <div style={{ margin: "2rem 0" }}>
           <button
