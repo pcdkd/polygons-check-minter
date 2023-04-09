@@ -106,7 +106,7 @@ const Home: NextPage = () => {
   };
 
   const handleMintClick = () => {
-    safeMint?.([numTokens]);
+    safeMint?.();
   };
 
   return (
@@ -134,7 +134,7 @@ const Home: NextPage = () => {
         onchain.<br></br>gen1 minting now.  This is not alpha.<br></br><br></br> Notability not guaranteed.
       </h2>
       <p className="generated">{totalMinted} generated.</p>
-      <ConnectButton style={{ margin: "1rem 0" }} />
+      <ConnectButton />
       {isConnected && (
         <div style={{ margin: "2rem 0" }}>
           <button
