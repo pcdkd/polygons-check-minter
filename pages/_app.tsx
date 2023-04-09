@@ -10,7 +10,7 @@ import { createClient, configureChains, WagmiConfig } from 'wagmi';
 import { polygonMumbai } from 'wagmi/chains';
 import { alchemyProvider } from 'wagmi/providers/alchemy';
 import { publicProvider } from 'wagmi/providers/public';
-import '../styles/global.css';
+import '@/styles/global.css';
 
 const { chains, provider } = configureChains(
   [polygonMumbai],

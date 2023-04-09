@@ -16,8 +16,8 @@ import type {
   UsePrepareContractWriteConfig,
 } from "wagmi";
 import { ethers } from "ethers";
-import Modal from "../components/Modal";
-import abi from "../contracts/contract.json";
+import Modal from "@/components/Modal";
+import abi from "@/contracts/contract.json";
 
 const Home: NextPage = () => {
   const [mounted, setMounted] = React.useState(false);
