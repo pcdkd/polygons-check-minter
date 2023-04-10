@@ -10,17 +10,14 @@ import { argentWallet, trustWallet } from '@rainbow-me/rainbowkit/wallets';
 import { createClient, configureChains, WagmiConfig } from 'wagmi';
 import { polygonMumbai, polygon } from 'wagmi/chains';
 import { alchemyProvider } from 'wagmi/providers/alchemy';
-import { infuraProvider } from 'wagmi/providers/infura';
 import { publicProvider } from 'wagmi/providers/public';
 
-const { chains, provider } = configureChains(
+const { chains, provider, webSocketProvider } = configureChains(
   [polygonMumbai, polygon],
   [
-    alchemyProvider({ apiKey: process.env.NEXT_PUBLIC_ALCHEMY_MUMBAI_KEY, priority: 1 }),
-    infuraProvider({ apiKey: process.env.NEXT_PUBLIC_INFURA_POLYGON_KEY, priority: 0 }),
-    publicProvider({ priority: 2 }),
+    alchemyProvider({ apiKey: process.env.ALCHEMY_MUMBAI_KEY as string, stallTimeout: 1_000}),
+    publicProvider(),
   ],
-  { stallTimeout: 1000 },
 );
 
 const { wallets } = getDefaultWallets({
@@ -44,6 +41,7 @@ const wagmiClient = createClient({
   autoConnect: false,
   connectors,
   provider,
+  webSocketProvider
 });
 
 function MyApp({ Component, pageProps }: AppProps) {
