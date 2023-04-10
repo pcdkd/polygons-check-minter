@@ -16,10 +16,11 @@ import { publicProvider } from 'wagmi/providers/public';
 const { chains, provider } = configureChains(
   [polygonMumbai, polygon],
   [
-    alchemyProvider({ apiKey: process.env.NEXT_PUBLIC_ALC_MMBI_KEY || "" }),
-    infuraProvider({ apiKey: process.env.NEXT_PUBLIC_INF_PLY_KEY || "" }),
-    publicProvider(),
+    alchemyProvider({ apiKey: process.env.NEXT_PUBLIC_ALCHEMY_MUMBAI_KEY, priority: 1 }),
+    infuraProvider({ apiKey: process.env.NEXT_PUBLIC_INFURA_POLYGON_KEY, priority: 0 }),
+    publicProvider({ priority: 2 }),
   ],
+  { stallTimeout: 1000 },
 );
 
 const { wallets } = getDefaultWallets({
