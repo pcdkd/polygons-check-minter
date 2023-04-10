@@ -31,7 +31,7 @@ const Home: NextPage = () => {
 
   const [numTokens, setNumTokens] = React.useState(1);
 
-  const mintPrice = 0.007;
+  const mintPrice = 7;
   const totalValue = mintPrice * numTokens
   const value = ethers.utils.parseEther(totalValue.toString());
 
