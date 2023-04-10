@@ -9,14 +9,14 @@ import {
 } from '@rainbow-me/rainbowkit';
 import { argentWallet, trustWallet } from '@rainbow-me/rainbowkit/wallets';
 import { createClient, configureChains, WagmiConfig } from 'wagmi';
-import { polygonMumbai, polygon } from 'wagmi/chains';
+import { polygon } from 'wagmi/chains';
 import { alchemyProvider } from 'wagmi/providers/alchemy';
 import { publicProvider } from 'wagmi/providers/public';
 
 const { chains, provider, webSocketProvider } = configureChains(
-  [polygonMumbai, polygon],
+  [polygon],
   [
-    alchemyProvider({ apiKey: process.env.ALCHEMY_MUMBAI_KEY as string, stallTimeout: 1_000}),
+    alchemyProvider({ apiKey: process.env.ALCHEMY_POLYGON_KEY as string, stallTimeout: 1_000}),
     publicProvider(),
   ],
 );

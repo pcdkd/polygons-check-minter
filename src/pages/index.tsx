@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Modal from "./components/modal";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import type { NextPage } from "next";
-import Head from "next/head";
 import {
   useAccount,
   useContractRead,
@@ -32,7 +31,7 @@ const Home: NextPage = () => {
 
   const [numTokens, setNumTokens] = React.useState(1);
 
-  const mintPrice = 0.01;
+  const mintPrice = 0.007;
   const totalValue = mintPrice * numTokens
   const value = ethers.utils.parseEther(totalValue.toString());
 
@@ -40,7 +39,7 @@ const Home: NextPage = () => {
   const network = useNetwork();
 
   const contractConfig = {
-    address: "0xEb4b197459F0A3cEF181c5383765b4ca2DC01252",
+    address: "0x06F9dc7963dD070E8206dAed8E4670c983f032c8",
     abi,
     provider,
   };
@@ -173,7 +172,7 @@ const Home: NextPage = () => {
           <p>
             View on{" "}
             <a
-              href={`https://mumbai.polygonscan.com/tx/${mintData?.hash}`}
+              href={`https://polygonscan.com/tx/${mintData?.hash}`}
               target={"_blank"}
             >
               PolygonScan
@@ -181,7 +180,7 @@ const Home: NextPage = () => {
           </p>
           <p>
             View on{" "}
-            <a href={`https://testnets.opensea.io/account`} target={"_blank"}>
+            <a href={`https://opensea.io/account`} target={"_blank"}>
               Opensea
             </a>
           </p>
@@ -210,24 +209,24 @@ const Home: NextPage = () => {
           >
             <p className="modalHeader">What is Polygons Check?</p>
             <p className="modalText">
-              A Checks-derviative, onchain art project on Polygon. Each Check minted contains a unique fingerprint. Art & metadata stored onchain.
+              A Checks-derviative, onchain art project on Polygon. Each minted Check is embedded with a unique fingerprint in the onchain art data URI.
             </p>
             <hr className="modalDivide"></hr>
             <p className="modalHeader">Where do I get Polygons Check?</p>
             <p className="modalText">
-              Polygons can only be generated on <a href="">this site</a>, via
-              the contract or secondary.
+              Polygons can only be generated on <a href="/">this site</a>, via
+              the <a href="https://polygonscan.com/address/0x06f9dc7963dd070e8206daed8e4670c983f032c8#code" target="_blank">contract</a> or secondary.
             </p>
             <hr className="modalDivide"></hr>
             <p className="modalHeader">How many can be generated?</p>
             <p className="modalText">
-              There are 3500 gen1 Polygon Checks available. Mint price is 7 MATIC.
+              Polygons Check are an open edition. The mint price is 7 MATIC.
             </p>
             <hr className="modalDivide"></hr>
-            <p className="modalHeader">How do I use Polygon Checks??</p>
+            <p className="modalHeader">How do I use Polygons Check?</p>
             <p className="modalText">
               Your day of mint is recorded. You will be able to use your gen1 Checks
-              to create gen2 iterations.
+              to create gen2 and other derivatives.
             </p>
             <hr className="modalDivide"></hr>
             <p className="modalHeader">Is there a creative commons licese?</p>
