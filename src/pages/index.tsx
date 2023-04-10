@@ -114,20 +114,6 @@ const Home: NextPage = () => {
       className="page"
       style={{ textAlign: "center", display: "flex", flexDirection: "column" }}
     >
-      <Head>
-  <title>Polygons Checks — Checks are now on Polygon</title>
-  <meta name="description" content="A Checks-derviative, onchain art project on Polygon. Each Check minted contains a unique fingerprint. Art & metadata stored onchain." />
-  <meta name="keywords" content="Polygons Check, Checks, onchain art, Polygon, NFT, art project" />
-  <meta name="author" content="pcdkd" />
-  <meta property="og:title" content="Polygons Check" />
-<meta property="og:type" content="app" />
-<meta property="og:url" content="https://www.polygons.wtf/" />
-<meta property="og:image" content="https://polygons.wtf/components/assets/polygons-check-blue.png" />
-<meta name="twitter:title" content="Polygons CHeck "/>
-<meta name="twitter:description" content="A Checks-derviative, onchain art project on Polygon. Each Check minted contains a unique fingerprint. Art & metadata stored onchain."/>
-<meta name="twitter:image" content="https://polygons.wtf/components/assets/polygons-check-blue.png"/>
-<meta name="twitter:card" content="summary_large_image"/>
-</Head>
       <h1>Checks are now on Polygon.</h1>
       <h2>
         Polygons Check is a Checks-derivative art project on Polygon. Art & metadata is

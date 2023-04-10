@@ -1,3 +1,5 @@
+import { AppProps } from 'next/app';
+import Head from 'next/head';
 import '../styles/global.css';
 import '@rainbow-me/rainbowkit/styles.css';
 import type { AppProps } from 'next/app';
@@ -46,11 +48,16 @@ const wagmiClient = createClient({
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <WagmiConfig client={wagmiClient}>
-      <RainbowKitProvider appInfo={AppInfo} chains={chains}>
-        <Component {...pageProps} />
-      </RainbowKitProvider>
-    </WagmiConfig>
+    <>
+      <Head>
+        <title>Polygons Checks — Checks are now on Polygon</title>
+      </Head>
+      <WagmiConfig client={wagmiClient}>
+        <RainbowKitProvider appInfo={AppInfo} chains={chains}>
+          <Component {...pageProps} />
+        </RainbowKitProvider>
+      </WagmiConfig>
+    </>
   );
 }
 
