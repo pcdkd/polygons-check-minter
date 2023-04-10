@@ -4,16 +4,9 @@
   box-sizing: border-box;
 }
 
-:root {
-	--brown: #24221b;
-	--cream: #e4dcc9;
-}
-
-@import url('https://fonts.googleapis.com/css2?family=Tenor+Sans&display=swap');
-
 body {
   margin: 0;
-  font-family: 'Montserrat', Courier, monospace, -apple-system, "system-ui", "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: 'Barlow', Courier, monospace, -apple-system, "system-ui", "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: black;
@@ -89,7 +82,7 @@ button[data-mint-done="true"] {
 }
 
 h1 { font-size: 24px; padding-top:1rem }
-h2 { font-size: 18px; padding-top:3rem; padding-bottom:2rem }
+h2 { font-size: 18px; padding-top:3rem; padding-bottom:2rem; font-weight: normal }
 a { color: inherit }
 
 @keyframes pulse {
@@ -107,6 +100,8 @@ a { color: inherit }
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  background-color: black;
+  padding-top: 1rem;
 }
 
 .button-container {

@@ -116,8 +116,8 @@ const Home: NextPage = () => {
     >
       <h1>Checks are now on Polygon.</h1>
       <h2>
-        Polygons Check is a Checks-derivative art project on Polygon. Art & metadata is
-        onchain.<br></br>gen1 minting now.  This is not alpha.<br></br><br></br> Notability not guaranteed.
+        Polygons Check is a Checks-derived art project on Polygon. Art & metadata is
+        onchain.<br></br><br></br>gen1 minting now.  This is not alpha.<br></br><br></br> Notability not guaranteed.
       </h2>
       <p className="generated">{totalMinted} generated.</p>
       <ConnectButton />
