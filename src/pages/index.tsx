@@ -27,7 +27,7 @@ const Home: NextPage = () => {
     setMounted(true);
   }, []);
 
-  // const [totalMinted, setTotalMinted] = React.useState(0);
+  const [totalMinted, setTotalMinted] = React.useState(0);
   const { isConnected } = useAccount();
 
   const [numTokens, setNumTokens] = React.useState(1);
@@ -66,7 +66,7 @@ const Home: NextPage = () => {
 
   const { data: totalSupplyData }: any = useContractRead({
     ...contractConfig,
-    functionName: "totalSupply",
+    functionName: 'totalSupply',
     watch: true,
   } as UseContractReadConfig);
 
@@ -78,11 +78,11 @@ const Home: NextPage = () => {
     hash: mintData?.hash,
   });
 
-  // React.useEffect(() => {
-    // if (totalSupplyData) {
-      // setTotalMinted(totalSupplyData.toNumber());
-    // }
-  // }, [totalSupplyData]);
+  React.useEffect(() => {
+    if (totalSupplyData) {
+      setTotalMinted(totalSupplyData.toNumber());
+    }
+  }, [totalSupplyData]);
 
   const isMinted = txSuccess;
 
@@ -133,7 +133,7 @@ const Home: NextPage = () => {
         Polygons Check is a Checks-derivative art project on Polygon. Art & metadata is
         onchain.<br></br>gen1 minting now.  This is not alpha.<br></br><br></br> Notability not guaranteed.
       </h2>
-       
+      <p className="generated">{totalMinted} generated.</p>
       <ConnectButton />
       {isConnected && (
         <div style={{ margin: "2rem 0" }}>

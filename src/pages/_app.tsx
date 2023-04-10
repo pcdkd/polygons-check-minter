@@ -16,8 +16,8 @@ import { publicProvider } from 'wagmi/providers/public';
 const { chains, provider } = configureChains(
   [polygonMumbai, polygon],
   [
-    alchemyProvider({ apiKey: "process.env.NEXT_PUBLIC_ALC_MMBI_KEY" }),
-    infuraProvider({ apiKey: "process.env.NEXT_PUBLIC_INF_PLY_KEY" }),
+    alchemyProvider({ apiKey: process.env.NEXT_PUBLIC_ALC_MMBI_KEY || "" }),
+    infuraProvider({ apiKey: process.env.NEXT_PUBLIC_INF_PLY_KEY || "" }),
     publicProvider(),
   ],
 );
