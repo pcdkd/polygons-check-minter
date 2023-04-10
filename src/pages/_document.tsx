@@ -18,6 +18,10 @@ class MyDocument extends Document {
           <meta name="twitter:image" content="https://polygons.wtf/components/assets/polygons-check-blue.png"/>
           <meta name="twitter:card" content="summary_large_image"/>
 
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" />
+          <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet"></link>
+
           {/* Heap Analytics script */}
           <script
             type="text/javascript"
