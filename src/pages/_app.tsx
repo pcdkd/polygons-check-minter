@@ -10,14 +10,16 @@ import {
 import { argentWallet, trustWallet } from '@rainbow-me/rainbowkit/wallets';
 import { createClient, configureChains, WagmiConfig } from 'wagmi';
 import { polygon } from 'wagmi/chains';
+import { infuraProvider } from 'wagmi/providers/infura';
 import { alchemyProvider } from 'wagmi/providers/alchemy';
 import { publicProvider } from 'wagmi/providers/public';
 
 const { chains, provider, webSocketProvider } = configureChains(
   [polygon],
   [
-    alchemyProvider({ apiKey: process.env.ALCHEMY_POLYGON_KEY as string, stallTimeout: 1_000}),
-    publicProvider(),
+    alchemyProvider({ apiKey: process.env.ALCHEMY_POLYGON_KEY as string, priority: 1, stallTimeout: 1_000}),
+    infuraProvider({ apiKey: process.env.INFURA_POLYGON_KEY as string, priority: 0, stallTimeout: 1_000}),
+    publicProvider({ priority: 2 }),
   ],
 );
 
